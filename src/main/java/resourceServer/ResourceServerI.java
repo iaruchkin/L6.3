@@ -1,5 +1,7 @@
 package resourceServer;
 
+import resources.TestResource;
+
 /**
  * @author v.chibrikov
  *         <p/>
@@ -8,6 +10,8 @@ package resourceServer;
  *         Описание курса и лицензия: https://github.com/vitaly-chibrikov/stepic_java_webserver
  */
 public interface ResourceServerI {
+
+    void setResource(TestResource resource);
 
     String getName();
 

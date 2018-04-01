@@ -16,10 +16,7 @@ import servlets.ResourceServlet;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
-import java.io.RandomAccessFile;
 import java.lang.management.ManagementFactory;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 
 /**
  * @author v.chibrikov
@@ -38,10 +35,7 @@ public class Main {
 
         logger.info("Starting at http://127.0.0.1:" + portString);
 
-//        TestResource resource = (TestResource) ReadXMLFileSAX.readXML("./data/MySqlResource.xdb");
-//        System.out.println(resource);
-
-        ResourceServerI resourceServer = new ResourceServer("",0);//TODO resourceServer поменять по заданию
+        ResourceServerI resourceServer = new ResourceServer();
 
         ResourceServerControllerMBean serverStatistics = new ResourceServerController(resourceServer);
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();

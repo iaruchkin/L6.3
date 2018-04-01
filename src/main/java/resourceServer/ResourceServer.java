@@ -1,15 +1,20 @@
 package resourceServer;
 
 import resources.TestResource;
+import sax.ReadXMLFileSAX;
 
 public class ResourceServer implements ResourceServerI {
     private String name;
     private int age;
-    private TestResource resource;
+    private TestResource resource = (TestResource)ReadXMLFileSAX.readXML("./data/MySqlResource.xdb");
 
-    public ResourceServer(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public ResourceServer() {
+         name = resource.getName();
+         age = resource.getAge();
+    }
+
+    public void setResource(TestResource resource){
+        this.resource = resource;
     }
 
     @Override

@@ -10,8 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 
 /**
@@ -68,15 +66,11 @@ public class ResourceServlet extends HttpServlet {
 
         String path = request.getParameter("path");
 
-        TestResource testResource = (TestResource) ReadXMLFileSAX.readXML(path);
-
+//        ReadXMLFileSAX.readXML("./data/MySqlResource.xdb")
         if (path != null) {
-            //todo get info from file
-            int age = testResource.getAge();
-            String name = testResource.getName();
+            TestResource testResource = (TestResource) ReadXMLFileSAX.readXML(path);
 
-            resourceServer.setAge(age);
-            resourceServer.setName(name);
+            resourceServer.setResource(testResource);
 
             logger.info("path: {}", path);
             response.getWriter().println("Path");
